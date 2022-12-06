@@ -1,0 +1,302 @@
+{
+  "sourceSchemaArn": "",
+  "facets": {
+    "Bank": {
+      "facetAttributes": {
+        "Name": {
+          "attributeDefinition": {
+            "attributeType": "STRING",
+            "isImmutable": false,
+            "attributeRules": {
+              "nameLength": {
+                "parameters": {
+                  "min": "1",
+                  "max": "1024"
+                },
+                "ruleType": "STRING_LENGTH"
+              }
+            }
+          },
+          "requiredBehavior": "REQUIRED_ALWAYS"
+        },
+        "idBank":{
+          "attributeDefinition": {
+            "attributeType": "NUMBER",
+            "isImmutable": false,
+            "attributeRules": {}
+          },
+          "requiredBehavior": "REQUIRED_ALWAYS"
+        },
+        "Capitalization":{
+          "attributeDefinition": {
+            "attributeType": "NUMBER",
+            "isImmutable": false,
+            "attributeRules": {}
+          },
+          "requiredBehavior": "REQUIRED_ALWAYS"
+        }
+      },
+      "objectType": "LEAF_NODE"
+    }
+    ,
+    "Branch": {
+      "facetAttributes": {
+        "idBranch": {
+          "attributeDefinition": {
+            "attributeType": "NUMBER",
+            "isImmutable": false,
+            "attributeRules": {}
+          },
+          "requiredBehavior": "REQUIRED_ALWAYS"
+        },
+        "Bank_idBank":{
+          "attributeReference" : {
+            "targetFacetName" : "Bank",
+            "targetAttributeName" : "idBank"
+          },
+          "requiredBehavior": "REQUIRED_ALWAYS"
+        },
+        "Address": {
+          "attributeDefinition": {
+            "attributeType": "STRING",
+            "isImmutable": false,
+            "attributeRules": {
+              "nameLength": {
+                "parameters": {
+                  "min": "1",
+                  "max": "1024"
+                },
+                "ruleType": "STRING_LENGTH"
+              }
+            }
+          },
+          "requiredBehavior": "NOT_REQUIRED"
+        }
+      },
+      "objectType": "NODE"
+    },
+    "Worker": {
+      "facetAttributes": {
+        "idWorker":{
+          "attributeDefinition": {
+            "attributeType": "NUMBER",
+            "isImmutable": false,
+            "attributeRules": {}
+          },
+          "requiredBehavior": "REQUIRED_ALWAYS"
+        },
+        "Name": {
+          "attributeDefinition": {
+            "attributeType": "STRING",
+            "isImmutable": false,
+            "attributeRules": {
+              "nameLength": {
+                "parameters": {
+                  "min": "1",
+                  "max": "1024"
+                },
+                "ruleType": "STRING_LENGTH"
+              }
+            }
+          },
+          "requiredBehavior": "NOT_REQUIRED"
+        },
+        "Surname": {
+          "attributeDefinition": {
+            "attributeType": "STRING",
+            "isImmutable": false,
+            "attributeRules": {
+              "nameLength": {
+                "parameters": {
+                  "min": "1",
+                  "max": "1024"
+                },
+                "ruleType": "STRING_LENGTH"
+              }
+            }
+          },
+          "requiredBehavior": "NOT_REQUIRED"
+        },
+        "Branch_idBranch": {
+          "attributeReference" : {
+            "targetFacetName" : "Branch",
+            "targetAttributeName" : "idBranch"
+          },
+          "requiredBehavior": "REQUIRED_ALWAYS"
+        },
+        "Position": {
+          "attributeDefinition": {
+            "attributeType": "STRING",
+            "isImmutable": false,
+            "attributeRules": {
+              "nameLength": {
+                "parameters": {
+                  "min": "1",
+                  "max": "1024"
+                },
+                "ruleType": "STRING_LENGTH"
+              }
+            }
+          },
+          "requiredBehavior": "NOT_REQUIRED"
+        }
+      },
+      "objectType": "LEAF_NODE"
+    }
+    ,
+    "Client": {
+      "facetAttributes": {
+        "idClient": {
+          "attributeDefinition": {
+            "attributeType": "NUMBER",
+            "isImmutable": false,
+            "attributeRules": {}
+          },
+          "requiredBehavior": "REQUIRED_ALWAYS"
+        },
+        "Name": {
+          "attributeDefinition": {
+            "attributeType": "STRING",
+            "isImmutable": false,
+            "attributeRules": {
+              "nameLength": {
+                "parameters": {
+                  "min": "1",
+                  "max": "1024"
+                },
+                "ruleType": "STRING_LENGTH"
+              }
+            }
+          },
+          "requiredBehavior": "NOT_REQUIRED"
+        },
+        "Surname": {
+          "attributeDefinition": {
+            "attributeType": "STRING",
+            "isImmutable": false,
+            "attributeRules": {
+              "nameLength": {
+                "parameters": {
+                  "min": "1",
+                  "max": "1024"
+                },
+                "ruleType": "STRING_LENGTH"
+              }
+            }
+          },
+          "requiredBehavior": "NOT_REQUIRED"
+        },
+        "Branch_idBranch": {
+
+          "attributeReference" : {
+            "targetFacetName" : "Branch",
+            "targetAttributeName" : "idBranch"
+          }
+          ,
+          "requiredBehavior": "REQUIRED_ALWAYS"
+        }
+      },
+      "objectType": "NODE"
+    }
+    ,"Account": {
+      "facetAttributes": {
+        "idAccount":{
+          "attributeDefinition": {
+            "attributeType": "NUMBER",
+            "isImmutable": false,
+            "attributeRules": {}
+          },
+          "requiredBehavior": "REQUIRED_ALWAYS"
+        },
+        "Balance": {
+          "attributeDefinition": {
+            "attributeType": "STRING",
+            "isImmutable": false,
+            "attributeRules": {
+              "nameLength": {
+                "parameters": {
+                  "min": "1",
+                  "max": "1024"
+                },
+                "ruleType": "STRING_LENGTH"
+              }
+            }
+          },
+          "requiredBehavior": "NOT_REQUIRED"
+        },
+        "Client_idClient":{
+
+          "attributeReference" : {
+            "targetFacetName" : "Client",
+            "targetAttributeName" : "idClient"
+          }
+          ,
+          "requiredBehavior": "REQUIRED_ALWAYS"
+        },
+        "open_date": {
+          "attributeDefinition": {
+            "attributeType": "STRING",
+            "isImmutable": false,
+            "attributeRules": {
+              "nameLength": {
+                "parameters": {
+                  "min": "1",
+                  "max": "1024"
+                },
+                "ruleType": "STRING_LENGTH"
+              }
+            }
+          },
+          "requiredBehavior": "NOT_REQUIRED"
+        }
+      },
+      "objectType": "NODE"
+    }
+    ,"Loans": {
+      "facetAttributes": {
+        "idLoan": {
+          "attributeDefinition": {
+            "attributeType": "NUMBER",
+            "isImmutable": false,
+            "attributeRules": {}
+          },
+          "requiredBehavior": "REQUIRED_ALWAYS"
+        },
+        "Amount": {
+          "attributeDefinition": {
+            "attributeType": "NUMBER",
+            "isImmutable": false,
+            "attributeRules": {}
+          },
+          "requiredBehavior": "NOT_REQUIRED"
+        },
+        "Account_idAccount": {
+
+          "attributeReference" : {
+            "targetFacetName" : "Account",
+            "targetAttributeName" : "idAccount"
+          },
+          "requiredBehavior": "REQUIRED_ALWAYS"
+        },
+        "loan_date": {
+          "attributeDefinition": {
+            "attributeType": "STRING",
+            "isImmutable": false,
+            "attributeRules": {
+              "nameLength": {
+                "parameters": {
+                  "min": "1",
+                  "max": "1024"
+                },
+                "ruleType": "STRING_LENGTH"
+              }
+            }
+          },
+          "requiredBehavior": "NOT_REQUIRED"
+        }
+      },
+      "objectType": "LEAF_NODE"
+    }
+  },
+  "typedLinkFacets": {}
+}
